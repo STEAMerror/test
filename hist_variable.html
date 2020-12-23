@@ -28,7 +28,7 @@ var svg = d3.select("#my_dataviz")
           "translate(" + margin.left + "," + margin.top + ")");
 
 // получить данные
-d3.csv("https://raw.githubusercontent.com/STEAMerror/test/main/testbezdannih.csv", function(data) {
+d3.csv("https://raw.githubusercontent.com/STEAMerror/test/main/wtxt.csv", function(data) {
   //d3.csv("database.csv", function(data) {
 
   // X axis: масштабировать и рисовать:
@@ -41,13 +41,13 @@ d3.csv("https://raw.githubusercontent.com/STEAMerror/test/main/testbezdannih.csv
 
   // установить параметры гистограммы
   var histogram = d3.histogram()
-      .value(function(d) { return d.housing_median_age; })   // Мне нужно указать вектор ценности
+      .value(function(d) { return d.total_rooms; })   // Мне нужно указать вектор ценности
       .domain(x.domain())  // затем область изображения
       .thresholds(x.ticks(40)); // затем количество ящиков
 
   // И дважды примените эту функцию к данным, чтобы получить бункеры.
-  var bins1 = histogram(data.filter( function(d){return d.ocean_proximity === "NEAR OCEAN"} ));
-  var bins2 = histogram(data.filter( function(d){return d.ocean_proximity === "INLAND"} ));
+  var bins1 = histogram(data.filter( function(d){return d.ocean_proximity === "0"} ));
+  var bins2 = histogram(data.filter( function(d){return d.ocean_proximity === "1"} ));
 
   // Y axis: масштабировать и рисовать:
   var y = d3.scaleLinear()
