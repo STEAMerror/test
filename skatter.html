@@ -12,7 +12,7 @@
 // set the dimensions and margins of the graph
 var margin = {top: 30, right: 30, bottom: 30, left: 80},
     width = 460 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+    height = 700 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 var svg = d3.select("#my_dataviz")
@@ -24,11 +24,11 @@ var svg = d3.select("#my_dataviz")
           "translate(" + margin.left + "," + margin.top + ")");
 
 //Read the data
-d3.csv("https://raw.githubusercontent.com/mohitgupta-omg/Kaggle-California-Housing-Prices/master/Data/housing.csv", function(data) {
+d3.csv("https://raw.githubusercontent.com/STEAMerror/test/main/resulttxt.csv", function(data) {
 
   // Add X axis
   var x = d3.scaleLinear()
-    .domain([0, 10])
+    .domain([0, 20])
     .range([ 0, width ]);
   svg.append("g")
     .attr("transform", "translate(0," + height + ")")
@@ -36,7 +36,7 @@ d3.csv("https://raw.githubusercontent.com/mohitgupta-omg/Kaggle-California-Housi
 
   // Add Y axis
   var y = d3.scaleLinear()
-    .domain([0, 500000])
+    .domain([0, 8000000])
     .range([ height, 0]);
   svg.append("g")
     .call(d3.axisLeft(y));
@@ -53,7 +53,7 @@ d3.csv("https://raw.githubusercontent.com/mohitgupta-omg/Kaggle-California-Housi
       .style("fill", "#69b3a2")
 
   svg.append("text").attr("x", -50).attr("y", -15).text("Median house value, $").attr("alignment-baseline","middle")
-  svg.append("text").attr("x", 100).attr("y", 365).text("Median income, $").attr("alignment-baseline","middle")
+  svg.append("text").attr("x", 100).attr("y", 665).text("Median income, $").attr("alignment-baseline","middle")
 
 })
 

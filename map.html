@@ -57,7 +57,7 @@
     }).addTo(map)
 
     // Read data from CSV file
-    $.get('https://raw.githubusercontent.com/BarakatovaAnastasia/data/main/housing%2Ccsv', function(csvString) {
+    $.get('https://raw.githubusercontent.com/STEAMerror/test/main/wcoords.csv', function(csvString) {
 
       // Use PapaParse to transform file into arrays
       var data = Papa.parse(csvString.trim()).data.filter(
